@@ -5,12 +5,17 @@ class Hangman:
         """
         The function initializes a Hangman game with a given word list and number of lives, and sets up
         the initial state of the game.
+
+        ---------------------------------------------------------------------------------------------------
         
-        :param word_list: The `word_list` parameter is a list of words from which the computer will
+        Parameters: 
+        -word_list: The `word_list` parameter is a list of words from which the computer will
         randomly choose a word for the game. Each word in the list should be a string
-        :param num_lives: The `num_lives` parameter is used to specify the number of lives or guesses
+
+        -num_lives: The `num_lives` parameter is used to specify the number of lives or guesses
         the player has in the game. By default, it is set to 5 if no value is provided when creating an
         instance of the class, defaults to 5 (optional)
+
         """
         self.word_list = word_list
         self.num_lives = num_lives
@@ -20,6 +25,18 @@ class Hangman:
         self.list_of_guesses = []
     
     def check_guess(self, guess):
+        """
+        The function `check_guess` takes a guess as input, checks if the guess is in the computer's chosen
+        word, updates the word_guessed list if the guess is correct, and decreases the number of lives if
+        the guess is incorrect.
+
+        ------------------------------------------------------------------------------------------------------
+
+        Parameters:
+        -guess: The `guess` parameter is a string that represents the player's guess for a letter in
+        the word
+
+        """
         guess.lower()
         if guess in self.computer_choice:
             print(f'Good guess! {guess} is in the word.')
@@ -40,6 +57,7 @@ class Hangman:
         """
         The function asks the user for input, checks if it is a valid letter, and then checks if the letter
         has already been guessed.
+
         """
         guess = input('Please enter a letter: ')
         if guess.isalpha() == False or len(guess) > 1:
